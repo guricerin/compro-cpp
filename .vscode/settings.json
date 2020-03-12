@@ -1,0 +1,22 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "problems/**/**/*.txt": true,
+        "problems/**/**/*.sh": true,
+        "problems/**/**/*.out": true,
+        "problems/**/**/*.json": true,
+        "problems/**/**/*Makefile": true,
+        "problems/**/**/test": true,
+        "problems/**/**/*.cmake": true,
+        "problems/**/**/*CMakeFiles": true,
+        //"problems/**/**/*": true,
+        "problems/**/**/*.cpp": false,
+    },
+    "files.associations": {
+        "vector": "cpp"
+    }
+}
