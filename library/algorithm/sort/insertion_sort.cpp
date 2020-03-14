@@ -3,7 +3,7 @@
 /// O(n^2)
 /// ただし、ある程度整列済みならO(n)
 template <class T>
-void insertion_sort(vector<T> &vec) {
+void insertion_sort(vector<T>& vec) {
     auto len = vec.size();
     rep(i, 1, len) {
         auto a = vec[i];
@@ -13,7 +13,7 @@ void insertion_sort(vector<T> &vec) {
             j--;
         }
         vec[j + 1] = a;
-        dump_vector(vec);
+        dump_vec(vec);
     }
 }
 
@@ -24,6 +24,6 @@ signed main() {
     rep(i, 0, N) {
         cin >> A[i];
     }
-    dump_vector(A);
+    dump_vec(A);
     insertion_sort(A);
 }

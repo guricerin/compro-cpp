@@ -8,7 +8,7 @@ using i32 = int32_t;
 using i64 = int64_t;
 using f32 = float;
 using f64 = double;
-using P   = pair<int, int>;
+using P = pair<int, int>;
 
 template <class T>
 bool chmin(T& a, T b) {

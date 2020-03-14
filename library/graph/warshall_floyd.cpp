@@ -6,7 +6,7 @@
 /// O(V^3)
 template <class T>
 void warshall_floyd(vector<vector<T>>& mat, const T inf) {
-    const auto len           = mat.size();
+    const auto len = mat.size();
     rep(i, 0, len) mat[i][i] = 0;
     rep(k, 0, len) rep(i, 0, len) rep(j, 0, len) {
         if (mat[i][k] == inf || mat[k][j] == inf) continue;

@@ -5,7 +5,8 @@
 /// O(|S|)
 namespace z_algorithm {
 
-vector<int> run(const string& s) {
+template <class Seq>
+vector<int> run(const Seq& s) {
     const int len = s.size();
     vector<int> prefix(len);
     for (int i = 1, j = 0; i < len; i++) {
@@ -17,7 +18,7 @@ vector<int> run(const string& s) {
                 k++;
             }
             prefix[i] = k;
-            j         = i;
+            j = i;
         }
     }
     prefix[0] = len;
@@ -25,8 +26,9 @@ vector<int> run(const string& s) {
 }
 
 /// Tと一致する部分についてのSの左端の位置
-vector<int> search(const string& s, const string& t) {
-    const auto zs  = run(t + s);
+template <class Seq>
+vector<int> search(const Seq& s, const Seq& t) {
+    const auto zs = run(t + s);
     const int tlen = t.size();
     vector<int> res;
     for (int i = 0; i < (int)s.size(); i++) {

@@ -15,8 +15,8 @@ struct BinarySearchTree {
 
     void insert(i64 val) {
         auto cur = root;
-        Node* p  = nullptr;
-        Node* x  = new Node(val);
+        Node* p = nullptr;
+        Node* x = new Node(val);
         while (cur) {
             p = cur;
             if (x->val < cur->val) {
@@ -80,7 +80,7 @@ struct BinarySearchTree {
         } else { // 両方いる場合は、右部分木の左端のノードをnの位置にもってくる
             // 元いたやつの親と子の辺を繋ぎかえる
             auto cand = next_node(n->r);
-            n->val    = cand->val;
+            n->val = cand->val;
             replace(cand, cand->r);
         }
         return true;

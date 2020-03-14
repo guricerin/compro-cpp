@@ -16,7 +16,7 @@ struct Edge {
 };
 
 using Vertex = vector<Edge>;
-using Graph  = vector<Vertex>;
+using Graph = vector<Vertex>;
 
 // 無向
 void link(Graph& g, int from, int to, int cost = 1) {

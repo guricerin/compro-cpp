@@ -12,7 +12,7 @@ vector<i64> dijkstra(const Graph& g, int start) {
     dist[start] = 0;
     que.push(make_pair(0, 0));
     while (!que.empty()) {
-        const auto e    = que.top();
+        const auto e = que.top();
         const auto cost = e.first;
         const auto from = e.second;
         que.pop();

@@ -9,7 +9,7 @@ struct UnionFind {
     }
 
     int root(int x) {
-        const auto rx               = _ids[x];
+        const auto rx = _ids[x];
         return rx < 0 ? x : _ids[x] = root(rx);
     }
 

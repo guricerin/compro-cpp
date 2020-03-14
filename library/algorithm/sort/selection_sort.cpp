@@ -2,9 +2,9 @@
 
 /// O(n^2)
 template <class T>
-int selection_sort(vector<T> &vec) {
+int selection_sort(vector<T>& vec) {
     auto len = vec.size();
-    int cnt  = 0;
+    int cnt = 0;
     rep(i, 0, len) {
         auto minj = i;
         rep(j, i, len) {
@@ -29,6 +29,6 @@ signed main() {
     }
     auto ans = selection_sort(A);
 
-    dump_vector(A);
+    dump_vec(A);
     cout << ans << "\n";
 }

@@ -3,9 +3,9 @@
 /// O(n^2)
 /// バブルソートの交換回数は反転数または転倒数と呼ばれるもので、列の乱れの具合を表す
 template <class T>
-int bubble_sort(vector<T> &vec) {
+int bubble_sort(vector<T>& vec) {
     auto len = vec.size();
-    int cnt  = 0;    // スワップ回数
+    int cnt = 0;     // スワップ回数
     bool flg = true; // 逆の隣接要素が存在する
     while (flg) {
         flg = false;
@@ -29,6 +29,6 @@ signed main() {
     }
 
     auto ans = bubble_sort(A);
-    dump_vector(A);
+    dump_vec(A);
     cout << ans << "\n";
 }
