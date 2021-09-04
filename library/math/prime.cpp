@@ -23,6 +23,25 @@ map<i64, i64> prime_factors(i64 n) {
     return res;
 }
 
+/// エラトステネスの篩
+/// [1, n]の整数が素数であるかを返す
+/// O(n loglog n)
+vector<bool> sieve_of_eratosthenes(i64 n) {
+    vector<bool> sieve(n + 1, true);
+    sieve[0] = sieve[1] = false;
+
+    for (i64 p = 2; p <= n; p++) {
+        if (!sieve[p]) continue;
+
+        // p以外のpの倍数をふるい落とす
+        for (i64 q = p * 2; q <= n; q += p) {
+            sieve[q] = false;
+        }
+    }
+
+    return sieve;
+}
+
 /// オイラーのφ関数: https://mathtrain.jp/phi
 /// n以下の整数のうち、nと互いに素であるものの個数
 /// O(√ n)
