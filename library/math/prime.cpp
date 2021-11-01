@@ -53,3 +53,21 @@ i64 eulers_phy_function(i64 n) {
     }
     return (i64)res;
 }
+
+/// メビウス関数
+/// 1以外の平方数で割り切れる: 0
+/// nが相異なるk個の素因数に分解されるとき: (-1)^k
+/// O(√ n)
+int mobius(i64 n) {
+    if (n == 1) return 1;
+    auto ps = prime_factors(n);
+    for (auto& [p, e] : ps) {
+        if (e >= 2) return 0;
+    }
+
+    if (ps.size() % 2 == 0) {
+        return 1;
+    } else {
+        return -1;
+    }
+}
