@@ -45,7 +45,7 @@ vector<bool> sieve_of_eratosthenes(i64 n) {
 /// オイラーのφ関数: https://mathtrain.jp/phi
 /// n以下の整数のうち、nと互いに素であるものの個数
 /// O(√ n)
-i64 eulers_phy_function(i64 n) {
+i64 eulers_phy_func(i64 n) {
     auto mp = prime_factors(n);
     f64 res = n;
     for (auto p : mp) {
@@ -58,7 +58,7 @@ i64 eulers_phy_function(i64 n) {
 /// 1以外の平方数で割り切れる: 0
 /// nが相異なるk個の素因数に分解されるとき: (-1)^k
 /// O(√ n)
-int mobius(i64 n) {
+int mobius_func(i64 n) {
     if (n == 1) return 1;
     auto ps = prime_factors(n);
     for (auto& [p, e] : ps) {
@@ -70,4 +70,16 @@ int mobius(i64 n) {
     } else {
         return -1;
     }
+}
+
+/// ルジャンドル関数
+/// n!が素数pで何回割れるか
+/// O(log n)
+i64 legendre_func(i64 n, i64 p) {
+    i64 res = 0;
+    while (n) {
+        res += n / p;
+        n /= p;
+    }
+    return res;
 }
