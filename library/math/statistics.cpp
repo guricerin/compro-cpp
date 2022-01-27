@@ -37,3 +37,31 @@ double std_deviation(const vector<T>& ls) {
     auto omega = variance(ls);
     return sqrt(omega);
 }
+
+/// 四分位数
+template <class T>
+tuple<double, double, double> quartile(const vector<T>& ls) {
+    // [l,r) における中央値
+    auto f = [&](int l, int r) {
+        const int sz = r - l;
+        if (sz & 1) {
+            int mid = l + (r - l - 1) / 2;
+            return (double)ls[mid];
+        } else {
+            int mid = l + (r - l) / 2;
+            return ((double)ls[mid - 1] + (double)ls[mid]) / 2.0;
+        }
+    };
+
+    const int n = ls.size();
+    double m = f(0, n);
+    double l, r;
+    if (n & 1) {
+        l = f(0, (n - 1) / 2);
+        r = f((n - 1) / 2 + 1, n);
+    } else {
+        l = f(0, n / 2);
+        r = f(n / 2, n);
+    }
+    return make_tuple(l, m, r);
+}
