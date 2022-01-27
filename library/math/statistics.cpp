@@ -27,6 +27,33 @@ double std_deviation(const vector<T>& ls) {
     return sqrt(omega);
 }
 
+/// 共分散 : 2組の対応するデータ間での分散
+/// 元のデータの大きさで値が決まるので、解釈が難しい
+template <class T>
+double covariance(const vector<T>& as, const vector<T>& bs) {
+    assert(as.size() == bs.size());
+
+    auto aave = average(as), bave = average(bs);
+    const int n = as.size();
+    double sum = 0;
+    rep(i, 0, n) {
+        sum += (as[i] - aave) * (bs[i] - bave);
+    }
+    return sum / (double)n;
+}
+
+/// 相関係数 : 2組のデータ間の線形な関係の強弱を測る指標
+/// 値域は [-1,1]
+/// -1に近い -> 負の相関、0に近い -> 相関なし、1に近い -> 正の相関
+/// 因果関係があるかまでは測れない
+/// また、直線的でない関係性がある場合、相関係数が+-1に近いとは限らない（ex. y = |x| の場合、相関係数は0となる）
+template <class T>
+double correlation_coefficient(const vector<T>& as, const vector<T>& bs) {
+    auto covar = covariance(as, bs);
+    auto asd = std_deviation(as), bsd = std_deviation(bs);
+    return covar / (asd * bsd);
+}
+
 /// 中央値
 template <class T>
 double median(const vector<T>& ls) {
